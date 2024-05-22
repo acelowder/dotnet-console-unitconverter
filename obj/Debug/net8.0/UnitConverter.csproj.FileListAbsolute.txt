@@ -1,0 +1,15 @@
+/home/acelowder/UnitConverter/bin/Debug/net8.0/UnitConverter
+/home/acelowder/UnitConverter/bin/Debug/net8.0/UnitConverter.deps.json
+/home/acelowder/UnitConverter/bin/Debug/net8.0/UnitConverter.runtimeconfig.json
+/home/acelowder/UnitConverter/bin/Debug/net8.0/UnitConverter.dll
+/home/acelowder/UnitConverter/bin/Debug/net8.0/UnitConverter.pdb
+/home/acelowder/UnitConverter/obj/Debug/net8.0/UnitConverter.GeneratedMSBuildEditorConfig.editorconfig
+/home/acelowder/UnitConverter/obj/Debug/net8.0/UnitConverter.AssemblyInfoInputs.cache
+/home/acelowder/UnitConverter/obj/Debug/net8.0/UnitConverter.AssemblyInfo.cs
+/home/acelowder/UnitConverter/obj/Debug/net8.0/UnitConverter.csproj.CoreCompileInputs.cache
+/home/acelowder/UnitConverter/obj/Debug/net8.0/UnitConverter.sourcelink.json
+/home/acelowder/UnitConverter/obj/Debug/net8.0/UnitConverter.dll
+/home/acelowder/UnitConverter/obj/Debug/net8.0/refint/UnitConverter.dll
+/home/acelowder/UnitConverter/obj/Debug/net8.0/UnitConverter.pdb
+/home/acelowder/UnitConverter/obj/Debug/net8.0/UnitConverter.genruntimeconfig.cache
+/home/acelowder/UnitConverter/obj/Debug/net8.0/ref/UnitConverter.dll
