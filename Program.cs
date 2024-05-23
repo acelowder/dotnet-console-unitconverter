@@ -142,7 +142,7 @@ namespace UnitConverter
             switch (type)
             {
                 case ConversionType.Length:
-                    string[] lengthUnits = new string[] { "Centimeter", "Meter", "Kilometer", "Foot", "Yard", "Mile" };
+                    string[] lengthUnits = new string[] { "Millimeter", "Centimeter", "Meter", "Kilometer", "Foot", "Yard", "Mile" };
                     if (lengthUnits.Contains(fromUnit.ToString()))
                         lengthUnits = lengthUnits.Where(u => u != fromUnit.ToString()).ToArray();
                     Unit.UnitType unit = fromUnit;
@@ -199,8 +199,8 @@ namespace UnitConverter
                 }
                 catch (Exception e)
                 {
-                    // Console.WriteLine(e.Message);
-                    // Console.WriteLine(e.StackTrace);
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine(e.StackTrace);
 
 
                     Console.WriteLine("Invalid value");

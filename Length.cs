@@ -4,7 +4,7 @@ namespace UnitConverter
 {
     public class Length : Unit
     {
-        UnitType[] lengthUnits = { UnitType.Centimeter, UnitType.Meter, UnitType.Kilometer, UnitType.Foot, UnitType.Yard, UnitType.Mile };
+        UnitType[] lengthUnits = { UnitType.Millimeter, UnitType.Centimeter, UnitType.Meter, UnitType.Kilometer, UnitType.Foot, UnitType.Yard, UnitType.Mile };
 
         public Length(double value, UnitType type)
         {
@@ -18,6 +18,11 @@ namespace UnitConverter
         {
             switch (type)
             {
+                case UnitType.Millimeter:
+                    ConvertToMetric();
+                    Type = UnitType.Millimeter;
+                    Value *= 1000;
+                    break;
                 case UnitType.Centimeter:
                     ConvertToMetric();
                     Type = UnitType.Centimeter;
@@ -53,6 +58,10 @@ namespace UnitConverter
         {
             switch (Type)
             {
+                case UnitType.Millimeter:
+                    Type = UnitType.Meter;
+                    Value *= 0.001;
+                    break;
                 case UnitType.Centimeter:
                     Type = UnitType.Meter;
                     Value *= 0.01;
@@ -82,6 +91,10 @@ namespace UnitConverter
         {
             switch (Type)
             {
+                case UnitType.Millimeter:
+                    Type = UnitType.Foot;
+                    Value *= 0.00328084;
+                    break;
                 case UnitType.Centimeter:
                     Type = UnitType.Foot;
                     Value *= 0.0328084;

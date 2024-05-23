@@ -7,6 +7,7 @@ namespace UnitConverter
         public enum UnitType
         {
             Undefined,
+            Millimeter,
             Centimeter,
             Meter,
             Kilometer,
@@ -27,6 +28,8 @@ namespace UnitConverter
         {
             switch (unit)
             {
+                case Unit.UnitType.Millimeter:
+                    return "millimeters";
                 case Unit.UnitType.Centimeter:
                     return "centimeters";
                 case Unit.UnitType.Meter:
