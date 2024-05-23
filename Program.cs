@@ -111,8 +111,8 @@ namespace UnitConverter
             }
             else
             {
-                from = fromUnit.ToString();
-                fromUnderline = new string(' ', fromUnit.ToString().Length);
+                from = Unit.Pluralize(fromUnit);
+                fromUnderline = new string(' ', from.Length);
 
                 if (toUnit == Unit.UnitType.Undefined)
                 {
@@ -121,7 +121,7 @@ namespace UnitConverter
                 }
                 else
                 {
-                    to = toUnit.ToString();
+                    to = Unit.Pluralize(toUnit);
                     toUnderline = "     ";
                 }
             }
@@ -161,8 +161,10 @@ namespace UnitConverter
 
         static void ConversionCalculator(Unit.UnitType fromUnit, Unit.UnitType toUnit, ConversionType type)
         {
-            string units = fromUnit.ToString().ToLower() + "s";
-            Console.Write($"Enter value in {units} (0 to exit): ");
+            string fromUnits = Unit.Pluralize(fromUnit);
+            string toUnits = Unit.Pluralize(toUnit);
+
+            Console.Write($"Enter value in {fromUnits} (0 to exit): ");
 
             double value = 1;
             while (true)
@@ -193,16 +195,18 @@ namespace UnitConverter
                             break;
                     }
 
-                    Console.Write($"Enter value in {units}: ");
+                    Console.Write($"Enter value in {fromUnits}: ");
                 }
                 catch
                 {
                     Console.WriteLine("Invalid value");
-                    Console.Write($"Enter value in {units}: ");
+                    Console.Write($"Enter value in {fromUnits}: ");
                 }
             }
 
             Console.WriteLine();
         }
+
+
     }
 }

@@ -15,8 +15,6 @@ namespace UnitConverter
             System = DetermineSystem();
         }
 
-        public override string ToString() => $"{Value} {Type}s";
-
         public void ConvertTo(UnitType type)
         {
             switch (type)
