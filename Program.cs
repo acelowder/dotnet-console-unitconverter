@@ -25,6 +25,11 @@ namespace UnitConverter
                 DisplayTitle("Unit Converter", 30);
                 Enum.TryParse(Menu(conversionOptions), out type);
                 if (type == ConversionType.Exit) break;
+                else if (type == ConversionType.Volume || type == ConversionType.Weight)
+                {
+                    Console.WriteLine("Volume and Weight conversions are not yet supported\n");
+                    continue;
+                }
 
                 DisplayTitle("Select Conversion", 30);
                 Console.WriteLine();
