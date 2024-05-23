@@ -29,17 +29,20 @@ namespace UnitConverter
 
                 DisplayTitle("Select Conversion", 30);
                 Console.WriteLine();
-                DisplayConversion();
 
+                DisplayConversion();
+                Console.WriteLine();
                 fromUnit = GetUnit(type);
                 if (fromUnit == Unit.UnitType.Undefined) continue;
+
                 DisplayConversion(fromUnit);
+                Console.WriteLine();
                 toUnit = GetUnit(type, fromUnit);
                 if (toUnit == Unit.UnitType.Undefined) continue;
 
                 DisplayTitle("Conversion Calculator", 30);
                 DisplayConversion(fromUnit, toUnit);
-                // ConversionCalculator(fromUnit, toUnit);
+                ConversionCalculator(fromUnit, toUnit, type);
             }
             Environment.Exit(0);
         }
@@ -132,7 +135,6 @@ namespace UnitConverter
             {
                 Console.WriteLine();
             }
-            Console.WriteLine();
         }
 
         static Unit.UnitType GetUnit(ConversionType type, Unit.UnitType fromUnit = Unit.UnitType.Undefined)
@@ -155,6 +157,52 @@ namespace UnitConverter
                 default:
                     return Unit.UnitType.Undefined;
             }
+        }
+
+        static void ConversionCalculator(Unit.UnitType fromUnit, Unit.UnitType toUnit, ConversionType type)
+        {
+            string units = fromUnit.ToString().ToLower() + "s";
+            Console.Write($"Enter value in {units} (0 to exit): ");
+
+            double value = 1;
+            while (true)
+            {
+                try
+                {
+                    value = Convert.ToDouble(Console.ReadLine());
+                    if (value == 0) break;
+
+                    switch (type)
+                    {
+                        case ConversionType.Length:
+                            Length length = new Length(value, fromUnit);
+                            length.ConvertTo(toUnit);
+                            Console.WriteLine("= " + length.ToString());
+                            Console.WriteLine();
+                            break;
+                        case ConversionType.Temperature:
+                        // length.ConvertTo(toUnit);
+                        // break;
+                        case ConversionType.Volume:
+                        // length.ConvertTo(toUnit);
+                        // break;
+                        case ConversionType.Weight:
+                        // length.ConvertTo(toUnit);
+                        // break;
+                        default:
+                            break;
+                    }
+
+                    Console.Write($"Enter value in {units}: ");
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid value");
+                    Console.Write($"Enter value in {units}: ");
+                }
+            }
+
+            Console.WriteLine();
         }
     }
 }
