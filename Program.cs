@@ -142,7 +142,7 @@ namespace UnitConverter
             switch (type)
             {
                 case ConversionType.Length:
-                    string[] lengthUnits = new string[] { "Millimeter", "Centimeter", "Meter", "Kilometer", "Foot", "Yard", "Mile" };
+                    string[] lengthUnits = new string[] { "Millimeter", "Centimeter", "Meter", "Kilometer", "Inch", "Foot", "Yard", "Mile" };
                     if (lengthUnits.Contains(fromUnit.ToString()))
                         lengthUnits = lengthUnits.Where(u => u != fromUnit.ToString()).ToArray();
                     Enum.TryParse(Menu(lengthUnits), out unit);

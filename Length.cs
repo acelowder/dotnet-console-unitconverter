@@ -9,6 +9,7 @@ namespace UnitConverter
             UnitType.Centimeter,
             UnitType.Meter,
             UnitType.Kilometer,
+            UnitType.Inch,
             UnitType.Foot,
             UnitType.Yard,
             UnitType.Mile
@@ -44,6 +45,11 @@ namespace UnitConverter
                     Type = UnitType.Kilometer;
                     Value /= 1000;
                     break;
+                case UnitType.Inch:
+                    ConvertToImperial();
+                    Type = UnitType.Inch;
+                    Value *= 12;
+                    break;
                 case UnitType.Foot:
                     ConvertToImperial();
                     break;
@@ -68,17 +74,21 @@ namespace UnitConverter
             {
                 case UnitType.Millimeter:
                     Type = UnitType.Meter;
-                    Value *= 0.001;
+                    Value /= 1000;
                     break;
                 case UnitType.Centimeter:
                     Type = UnitType.Meter;
-                    Value *= 0.01;
+                    Value /= 100;
                     break;
                 case UnitType.Meter:
                     break;
                 case UnitType.Kilometer:
                     Type = UnitType.Meter;
                     Value *= 1000;
+                    break;
+                case UnitType.Inch:
+                    Type = UnitType.Meter;
+                    Value *= 0.0254;
                     break;
                 case UnitType.Foot:
                     Type = UnitType.Meter;
@@ -101,11 +111,11 @@ namespace UnitConverter
             {
                 case UnitType.Millimeter:
                     Type = UnitType.Foot;
-                    Value *= 0.00328084;
+                    Value *= 3.28084 / 1000;
                     break;
                 case UnitType.Centimeter:
                     Type = UnitType.Foot;
-                    Value *= 0.0328084;
+                    Value *= 3.28084 / 100;
                     break;
                 case UnitType.Meter:
                     Type = UnitType.Foot;
@@ -114,6 +124,10 @@ namespace UnitConverter
                 case UnitType.Kilometer:
                     Type = UnitType.Foot;
                     Value *= 3280.84;
+                    break;
+                case UnitType.Inch:
+                    Type = UnitType.Foot;
+                    Value /= 12;
                     break;
                 case UnitType.Foot:
                     break;

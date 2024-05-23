@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/acelowder/UnitConverter/UnitConverter.csproj": {}
+    "/home/acelowder/dotnet-console-unitconverter/UnitConverter.csproj": {}
   },
   "projects": {
-    "/home/acelowder/UnitConverter/UnitConverter.csproj": {
+    "/home/acelowder/dotnet-console-unitconverter/UnitConverter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/acelowder/UnitConverter/UnitConverter.csproj",
+        "projectUniqueName": "/home/acelowder/dotnet-console-unitconverter/UnitConverter.csproj",
         "projectName": "UnitConverter",
-        "projectPath": "/home/acelowder/UnitConverter/UnitConverter.csproj",
+        "projectPath": "/home/acelowder/dotnet-console-unitconverter/UnitConverter.csproj",
         "packagesPath": "/home/acelowder/.nuget/packages/",
-        "outputPath": "/home/acelowder/UnitConverter/obj/",
+        "outputPath": "/home/acelowder/dotnet-console-unitconverter/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/acelowder/.nuget/NuGet/NuGet.Config"
@@ -58,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/acelowder/.dotnet/sdk/8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

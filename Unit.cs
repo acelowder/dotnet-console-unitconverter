@@ -11,6 +11,7 @@ namespace UnitConverter
             Centimeter,
             Meter,
             Kilometer,
+            Inch,
             Foot,
             Yard,
             Mile,
@@ -39,6 +40,8 @@ namespace UnitConverter
                     return "meters";
                 case Unit.UnitType.Kilometer:
                     return "kilometers";
+                case Unit.UnitType.Inch:
+                    return "inches";
                 case Unit.UnitType.Foot:
                     return "feet";
                 case Unit.UnitType.Yard:
