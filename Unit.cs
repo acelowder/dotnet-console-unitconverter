@@ -24,7 +24,11 @@ namespace UnitConverter
         public UnitType Type { get; protected set; }
         public UnitSystem System { get; protected set; }
 
-        public override string ToString() => $"{Value} {Pluralize(Type)}";
+        public override string ToString()
+        {
+            return Value == 1 ? $"{Value} {Type}" : $"{Value} {Pluralize(Type)}";
+        }
+        
         public static string Pluralize(Unit.UnitType unit)
         {
             switch (unit)

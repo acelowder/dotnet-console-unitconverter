@@ -29,18 +29,16 @@ namespace UnitConverter
                     break;
                 case UnitType.Foot:
                     ConvertToImperial();
-                    Type = UnitType.Foot;
-                    Value /= 0.3048;
                     break;
                 case UnitType.Yard:
                     ConvertToImperial();
                     Type = UnitType.Yard;
-                    Value /= 0.9144;
+                    Value /= 3;
                     break;
                 case UnitType.Mile:
                     ConvertToImperial();
                     Type = UnitType.Mile;
-                    Value /= 1609.344;
+                    Value /= 5280;
                     break;
                 default:
                     throw new ArgumentException("Invalid unit type");
