@@ -4,15 +4,10 @@ namespace UnitConverter
 {
     public abstract class Unit
     {
-        public enum UnitSystem
-        {
-            Metric,
-            Imperial
-        }
-
         public enum UnitType
         {
             Undefined,
+            Centimeter,
             Meter,
             Kilometer,
             Foot,
@@ -22,17 +17,18 @@ namespace UnitConverter
 
         public double Value { get; set; }
         public UnitType Type { get; protected set; }
-        public UnitSystem System { get; protected set; }
 
         public override string ToString()
         {
-            return Value == 1 ? $"{Value} {Type}" : $"{Value} {Pluralize(Type)}";
+            return Value == 1 ? $"{Value} {Type.ToString().ToLower()}" : $"{Value} {Pluralize(Type)}";
         }
-        
+
         public static string Pluralize(Unit.UnitType unit)
         {
             switch (unit)
             {
+                case Unit.UnitType.Centimeter:
+                    return "centimeters";
                 case Unit.UnitType.Meter:
                     return "meters";
                 case Unit.UnitType.Kilometer:
@@ -48,7 +44,6 @@ namespace UnitConverter
             }
         }
 
-        protected abstract UnitSystem DetermineSystem();
         protected abstract void ConvertToMetric();
         protected abstract void ConvertToImperial();
     }

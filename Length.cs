@@ -4,7 +4,7 @@ namespace UnitConverter
 {
     public class Length : Unit
     {
-        UnitType[] lengthUnits = { UnitType.Meter, UnitType.Kilometer, UnitType.Foot, UnitType.Yard, UnitType.Mile };
+        UnitType[] lengthUnits = { UnitType.Centimeter, UnitType.Meter, UnitType.Kilometer, UnitType.Foot, UnitType.Yard, UnitType.Mile };
 
         public Length(double value, UnitType type)
         {
@@ -12,13 +12,17 @@ namespace UnitConverter
 
             Type = type;
             Value = value;
-            System = DetermineSystem();
         }
 
         public void ConvertTo(UnitType type)
         {
             switch (type)
             {
+                case UnitType.Centimeter:
+                    ConvertToMetric();
+                    Type = UnitType.Centimeter;
+                    Value *= 100;
+                    break;
                 case UnitType.Meter:
                     ConvertToMetric();
                     break;
@@ -45,29 +49,14 @@ namespace UnitConverter
             }
         }
 
-        protected override UnitSystem DetermineSystem()
-        {
-            switch (Type)
-            {
-                case UnitType.Meter:
-                    return UnitSystem.Metric;
-                case UnitType.Kilometer:
-                    return UnitSystem.Metric;
-                case UnitType.Foot:
-                    return UnitSystem.Imperial;
-                case UnitType.Yard:
-                    return UnitSystem.Imperial;
-                case UnitType.Mile:
-                    return UnitSystem.Imperial;
-                default:
-                    throw new ArgumentException("Invalid unit type");
-            }
-        }
-
         protected override void ConvertToMetric()
         {
             switch (Type)
             {
+                case UnitType.Centimeter:
+                    Type = UnitType.Meter;
+                    Value *= 0.01;
+                    break;
                 case UnitType.Meter:
                     break;
                 case UnitType.Kilometer:
@@ -77,17 +66,14 @@ namespace UnitConverter
                 case UnitType.Foot:
                     Type = UnitType.Meter;
                     Value *= 0.3048;
-                    System = UnitSystem.Metric;
                     break;
                 case UnitType.Yard:
                     Type = UnitType.Meter;
                     Value *= 0.9144;
-                    System = UnitSystem.Metric;
                     break;
                 case UnitType.Mile:
                     Type = UnitType.Meter;
                     Value *= 1609.344;
-                    System = UnitSystem.Metric;
                     break;
             }
         }
@@ -96,27 +82,27 @@ namespace UnitConverter
         {
             switch (Type)
             {
+                case UnitType.Centimeter:
+                    Type = UnitType.Foot;
+                    Value *= 0.0328084;
+                    break;
                 case UnitType.Meter:
                     Type = UnitType.Foot;
                     Value *= 3.28084;
-                    System = UnitSystem.Imperial;
                     break;
                 case UnitType.Kilometer:
                     Type = UnitType.Foot;
                     Value *= 3280.84;
-                    System = UnitSystem.Imperial;
                     break;
                 case UnitType.Foot:
                     break;
                 case UnitType.Yard:
                     Type = UnitType.Foot;
                     Value *= 3;
-                    System = UnitSystem.Imperial;
                     break;
                 case UnitType.Mile:
                     Type = UnitType.Foot;
                     Value *= 5280;
-                    System = UnitSystem.Imperial;
                     break;
             }
         }
