@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 
 namespace UnitConverter
 {
@@ -155,9 +154,9 @@ namespace UnitConverter
                     Enum.TryParse(Menu(tempUnits), out unit);
                     return unit;
                 case ConversionType.Volume:
-                // return new Volume();
+                    // new Volume();
                 case ConversionType.Weight:
-                // return new Weight();
+                    // new Weight();
                 default:
                     return Unit.UnitType.Undefined;
             }
@@ -170,7 +169,7 @@ namespace UnitConverter
 
             Console.Write($"Enter value in {fromUnits} (e to exit): ");
 
-            string input;
+            string input = string.Empty;
             double value = 1;
             while (true)
             {
@@ -179,7 +178,7 @@ namespace UnitConverter
                     input = Console.ReadLine();
                     if (input == "e") break;
                     value = Convert.ToDouble(input);
-                    
+
                     switch (type)
                     {
                         case ConversionType.Length:
@@ -193,11 +192,11 @@ namespace UnitConverter
                             Console.WriteLine("= " + temp.ToString());
                             break;
                         case ConversionType.Volume:
-                        // length.ConvertTo(toUnit);
-                        // break;
+                            // volume.ConvertTo(toUnit);
+                            // break;
                         case ConversionType.Weight:
-                        // length.ConvertTo(toUnit);
-                        // break;
+                            // weight.ConvertTo(toUnit);
+                            // break;
                         default:
                             break;
                     }
@@ -205,11 +204,10 @@ namespace UnitConverter
                     Console.WriteLine();
                     Console.Write($"Enter value in {fromUnits}: ");
                 }
-                catch (Exception e)
+                catch // (Exception e)
                 {
-                    Console.WriteLine(e.Message);
-                    Console.WriteLine(e.StackTrace);
-
+                    // Console.WriteLine(e.Message);
+                    // Console.WriteLine(e.StackTrace);
 
                     Console.WriteLine("Invalid value");
                     Console.Write($"Enter value in {fromUnits}: ");
