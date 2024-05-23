@@ -9,3 +9,14 @@ You can test the console application at <a href="https://dotnetfiddle.net/CsTjUv
 
 <a href="https://dotnetfiddle.net/CsTjUv"><img src="example.gif" width="1280"></a>
 
+## Future Plans
+If I have time to come back to this project, I plan to add the following features:
+- **Volume Conversions**: Converting from gallons to liters to cubic inches.
+- **Weight Conversions**: Converting from ounces to grams.
+- **Update Console Interface**: Make the interface more user friendly using the Spectre.Console library.
+
+&nbsp;
+
+## Reflections
+
+I like the method that I came up with for efficient conversions between metric and imperial units, but I still came across issues with types. In hindsight, I should have created an interface, but I was too far along with the console application to go back and refactor within my timeline for the project.
