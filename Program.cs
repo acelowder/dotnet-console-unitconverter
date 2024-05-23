@@ -139,17 +139,21 @@ namespace UnitConverter
 
         static Unit.UnitType GetUnit(ConversionType type, Unit.UnitType fromUnit = Unit.UnitType.Undefined)
         {
+            Unit.UnitType unit = fromUnit;
             switch (type)
             {
                 case ConversionType.Length:
                     string[] lengthUnits = new string[] { "Millimeter", "Centimeter", "Meter", "Kilometer", "Foot", "Yard", "Mile" };
                     if (lengthUnits.Contains(fromUnit.ToString()))
                         lengthUnits = lengthUnits.Where(u => u != fromUnit.ToString()).ToArray();
-                    Unit.UnitType unit = fromUnit;
                     Enum.TryParse(Menu(lengthUnits), out unit);
                     return unit;
                 case ConversionType.Temperature:
-                // return new Temperature();
+                    string[] tempUnits = new string[] { "Fahrenheit", "Celsius", "Kelvin" };
+                    if (tempUnits.Contains(fromUnit.ToString()))
+                        tempUnits = tempUnits.Where(u => u != fromUnit.ToString()).ToArray();
+                    Enum.TryParse(Menu(tempUnits), out unit);
+                    return unit;
                 case ConversionType.Volume:
                 // return new Volume();
                 case ConversionType.Weight:
@@ -164,27 +168,30 @@ namespace UnitConverter
             string fromUnits = Unit.Pluralize(fromUnit);
             string toUnits = Unit.Pluralize(toUnit);
 
-            Console.Write($"Enter value in {fromUnits} (0 to exit): ");
+            Console.Write($"Enter value in {fromUnits} (e to exit): ");
 
+            string input;
             double value = 1;
             while (true)
             {
                 try
                 {
-                    value = Convert.ToDouble(Console.ReadLine());
-                    if (value == 0) break;
-
+                    input = Console.ReadLine();
+                    if (input == "e") break;
+                    value = Convert.ToDouble(input);
+                    
                     switch (type)
                     {
                         case ConversionType.Length:
                             Length length = new Length(value, fromUnit);
                             length.ConvertTo(toUnit);
                             Console.WriteLine("= " + length.ToString());
-                            Console.WriteLine();
                             break;
                         case ConversionType.Temperature:
-                        // length.ConvertTo(toUnit);
-                        // break;
+                            Temperature temp = new Temperature(value, fromUnit);
+                            temp.ConvertTo(toUnit);
+                            Console.WriteLine("= " + temp.ToString());
+                            break;
                         case ConversionType.Volume:
                         // length.ConvertTo(toUnit);
                         // break;
@@ -195,6 +202,7 @@ namespace UnitConverter
                             break;
                     }
 
+                    Console.WriteLine();
                     Console.Write($"Enter value in {fromUnits}: ");
                 }
                 catch (Exception e)

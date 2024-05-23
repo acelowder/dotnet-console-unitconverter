@@ -4,7 +4,15 @@ namespace UnitConverter
 {
     public class Length : Unit
     {
-        UnitType[] lengthUnits = { UnitType.Millimeter, UnitType.Centimeter, UnitType.Meter, UnitType.Kilometer, UnitType.Foot, UnitType.Yard, UnitType.Mile };
+        UnitType[] lengthUnits = {
+            UnitType.Millimeter,
+            UnitType.Centimeter,
+            UnitType.Meter,
+            UnitType.Kilometer,
+            UnitType.Foot,
+            UnitType.Yard,
+            UnitType.Mile
+        };
 
         public Length(double value, UnitType type)
         {

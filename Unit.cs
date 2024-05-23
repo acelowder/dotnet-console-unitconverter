@@ -13,7 +13,10 @@ namespace UnitConverter
             Kilometer,
             Foot,
             Yard,
-            Mile
+            Mile,
+            Fahrenheit,
+            Celsius,
+            Kelvin
         }
 
         public double Value { get; set; }
@@ -42,6 +45,12 @@ namespace UnitConverter
                     return "yards";
                 case Unit.UnitType.Mile:
                     return "miles";
+                case Unit.UnitType.Fahrenheit:
+                    return "fahrenheit";
+                case Unit.UnitType.Celsius:
+                    return "celsius";
+                case Unit.UnitType.Kelvin:
+                    return "kelvin";
                 default:
                     throw new ArgumentException("Invalid unit type");
             }
